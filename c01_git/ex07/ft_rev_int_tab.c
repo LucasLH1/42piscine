@@ -10,35 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
 
 void ft_rev_int_tab(int *tab, int size)
 {
-	int		i;
-	int		j;
-	int		tmp;
+        int     i;
+        int     tmp;
 
-	*tab = tmp;
-	i = size;
-
-	while (i > j)
-	{
-		tab[i]=tmp[i];
-		printf("%d",*tab[i]);
-		i--;
-		j++;
-	}
+        i = 0;
+        while (i < size / 2)
+        {
+                tmp = tab[i];
+                tab[i] = tab[size - i - 1];
+                tab[size - i - 1] = tmp;
+                i++;
+        }
 }
 
 int main()
 {
-	int arr = {10, 20, 30};
-	ft_rev_int_tab(arr, 2);
+        int tab[4] = {0, 1, 2, 3};
+        int size = 4;
+
+        ft_rev_int_tab(tab, size);
+        printf("%d, %d, %d, %d", tab[0], tab[1], tab[2], tab[3]);
+        return (0);
 }
 
